@@ -1,0 +1,123 @@
+activecomp {
+  name: "Player_Error"
+  width: 1920
+  height: 1080
+  defaultcameradistance: 2666.6667
+  layer {
+    name: "Dark Gray Solid 1"
+    id: 618
+    sourceid: 632
+    transform {
+      anchorPoint {
+        x: 960
+        y: 540
+        z: 0
+      }
+      scale {
+        x: 1
+        y: 1
+        z: 1
+      }
+      position {
+        x: 960
+        y: 540
+        z: 0
+      }
+      orientation {
+        x: 0
+        y: 0
+        z: 0
+      }
+      rotationX: 0
+      rotationY: 0
+      rotationZ: 0
+      opacity: 1
+    }
+    acceptsshadows: true
+    acceptslights: true
+    castsshadows: false
+  }
+  layer {
+    name: "Text-Error"
+    id: 619
+    sourceid: -1
+    transform {
+      anchorPoint {
+        x: 500.292
+        y: 13.101746
+        z: 0
+      }
+      scale {
+        x: 1
+        y: 1
+        z: 1
+      }
+      position {
+        x: 960
+        y: 540
+        z: 0
+      }
+      orientation {
+        x: 0
+        y: 0
+        z: 0
+      }
+      rotationX: 0
+      rotationY: 0
+      rotationZ: 0
+      opacity: 1
+    }
+    acceptsshadows: true
+    acceptslights: true
+    castsshadows: false
+    textinfo {
+      justification: AE_TEXT_CENTER
+      fontSize: 36
+      fontColor {
+        alpha: 1
+        red: 1
+        green: 1
+        blue: 1
+      }
+      fontName: "ArialMT"
+      isPointText: false
+      boundsWidth: 998
+      boundsHeight: 180
+      isLabel: true
+      text: ""
+      multiline: true
+      isAllCaps: false
+    }
+    properties {
+      key: "text-placeholder"
+      value: "true"
+    }
+  }
+  bgcolor {
+    alpha: 1
+    red: 0
+    green: 0
+    blue: 0
+  }
+}
+sources {
+  uid: 632
+  srctype: AE_SOLID_SRC
+  color {
+    alpha: 1
+    red: 0.15035232901573181
+    green: 0.15035232901573181
+    blue: 0.15035232901573181
+  }
+  width: 1920
+  height: 1080
+  copy_source: false
+}
+sources {
+  uid: 2
+  srctype: AE_FONT_SRC
+  name: "ArialMT"
+  copy_source: true
+  file_name: "yi_Arial-Regular.ttf"
+  style_name: "Regular"
+}
