@@ -1,0 +1,46 @@
+{
+  "extends": ["plugin:react-hooks/recommended", "airbnb"],
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "document": false
+  },
+  "rules": {
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state"]
+      }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "import/no-unresolved": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "import/extensions": [
+      2,
+      {
+        "tsx": "never",
+        "ts": "never"
+      }
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["warn"],
+    "implicit-arrow-linebreak": 0,
+    "react/prop-types": 0,
+    "object-curly-newline": 0,
+    "react/prefer-stateless-function": 0,
+    "react/state-in-constructor": 0,
+    "react/destructuring-assignment": 0,
+    "import/prefer-default-export": 0
+  }
+}

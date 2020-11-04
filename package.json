@@ -1,5 +1,5 @@
 {
-  "name": "Picture App",
+  "name": "pictureapp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,17 +10,39 @@
   },
   "dependencies": {
     "@babel/core": "7.0.0",
+    "@reduxjs/toolkit": "^1.4.0",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.55",
+    "@types/react-native": "^0.63.30",
+    "@types/react-navigation": "^2.13.10",
+    "@types/react-redux": "^7.1.9",
     "@youi/react-native-youi": "5.10.0",
+    "axios": "^0.21.0",
     "babel-preset-react-native": "4.0.0",
     "metro-react-native-babel-preset": "^0.45.0",
     "react": "16.6.3",
-    "react-native": "0.58.6"
+    "react-native": "0.58.6",
+    "react-navigation": "2.18.3",
+    "react-redux": "6.0.0",
+    "redux": "^4.0.5",
+    "redux-connect-decorator": "^0.2.1",
+    "redux-saga": "^1.1.3",
+    "typescript": "^4.0.5"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "jest": "^24.0.0",
+    "prettier": "^2.1.2",
     "react-test-renderer": "^16.6.3"
   },
   "jest": {
