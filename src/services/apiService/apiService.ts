@@ -11,7 +11,7 @@ const request = async <T, U = T>({
   const api = axios.create() as AxiosInstance;
 
   try {
-    response = await api(getUrl(url));
+    response = await api(url);
 
     const { data, status } = response;
 

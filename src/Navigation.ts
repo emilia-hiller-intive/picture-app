@@ -1,27 +1,26 @@
 import { createStackNavigator } from 'react-navigation';
 import SearchScreen from './screens/SearchScreen';
 import ResultsScreen from './screens/ResultsScreen';
+import { PATHS } from './consts';
 
 export default createStackNavigator(
   {
     Search: {
       screen: SearchScreen,
       navigationOptions: {
-        title: 'Search',
+        title: PATHS.SEARCH,
         header: null,
       },
     },
     Results: {
       screen: ResultsScreen,
-      navigationOptions: {
-        // headerLeft: null,
-      },
     },
   },
   {
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#fff',
+        height: 30,
       },
     },
   },

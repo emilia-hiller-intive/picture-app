@@ -9,6 +9,7 @@ import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from '@reduxjs/toolkit';
 import { NavigationScreenProp, NavigationState } from 'react-navigation';
+import { FocusManager } from '@youi/react-native-youi';
 import actions from '../store/actions';
 import { RootState } from '../store/reducers';
 import ActivityIndicator from '../components/ActivityIndicator';
@@ -31,12 +32,10 @@ class SearchScreen extends Component<Props, State> {
     inputValue: '',
   };
 
-  // componentDidMount() {
-  //   setTimeout(() => {
-  //     FocusManager.enableFocus(this?.inputRef?.current);
-  //     FocusManager.focus(this?.inputRef?.current);
-  //   });
-  // }
+  onLayout = () => {
+    FocusManager.enableFocus(this?.inputRef?.current);
+    FocusManager.focus(this?.inputRef?.current);
+  };
 
   handleChange = (inputValue: string) => {
     this.setState({
@@ -51,7 +50,6 @@ class SearchScreen extends Component<Props, State> {
       );
       this.setState({ inputValue: '' });
     }
-    this.props.navigation.navigate('Results');
   };
 
   render() {
@@ -76,6 +74,7 @@ class SearchScreen extends Component<Props, State> {
                 value={inputValue}
                 placeholder="Search..."
                 placeholderTextColor="#A3A4A4"
+                onLayout={this.onLayout}
               />
               <TouchableOpacity
                 disabled={!inputValue}
@@ -102,7 +101,7 @@ class SearchScreen extends Component<Props, State> {
 
 const mapStateToProps = (state: RootState) => ({
   isPending: state.searchPictures.isPending,
-  isError: state.searchPictures.isSearchError,
+  isSearchError: state.searchPictures.isSearchError,
   pictures: state.searchPictures.pictures,
 });
 

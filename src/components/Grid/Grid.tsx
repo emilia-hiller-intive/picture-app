@@ -1,11 +1,12 @@
 import React, { Component, createRef, RefObject } from 'react';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList, LayoutChangeEvent, ScrollView } from 'react-native';
 import {
   FocusManager,
   ListItem as ListItemType,
 } from '@youi/react-native-youi';
-import { PictureType } from '../types/pictures';
-import ListItem from './ListItem';
+import { PictureType } from '../../types/pictures';
+import ListItem from '../ListItem';
+import { setFocus } from './helpers';
 
 interface Props {
   pictures: PictureType[];
@@ -14,25 +15,19 @@ interface Props {
 class Grid extends Component<Props, {}> {
   itemRefs: RefObject<ListItem>[] = [];
 
+  layouts: any[] = [];
+
   scroller = createRef<ScrollView>();
 
   constructor(props: Props) {
     super(props);
 
     this.itemRefs = this.props.pictures.map(() => createRef<ListItem>());
+    this.layouts = this.props.pictures.map(() => null);
   }
 
   componentDidMount() {
-    FocusManager.setNextFocus(
-      this.itemRefs[0].current,
-      this.itemRefs[1].current,
-      'right',
-    );
-    FocusManager.setNextFocus(
-      this.itemRefs[0].current,
-      this.itemRefs[4].current,
-      'down',
-    );
+    setFocus(this.itemRefs);
 
     setTimeout(() => {
       FocusManager.enableFocus(this.itemRefs[0]?.current);
@@ -40,11 +35,26 @@ class Grid extends Component<Props, {}> {
     });
   }
 
-  renderItem = ({ item }: ListItemType<PictureType>) => (
+  handleFocusChange = (index: number) => {
+    this.scroller.current?.scrollTo({
+      y: this.layouts[index].rowId * this.layouts[index].height,
+      animated: false,
+    });
+  };
+
+  onLayout = (event: LayoutChangeEvent, index: number): void => {
+    this.layouts[index] = event.nativeEvent.layout;
+    this.layouts[index].rowId = Math.floor(index / 4);
+  };
+
+  renderItem = ({ item, index }: ListItemType<PictureType>) => (
     <ListItem
       thumb={item.thumb}
       description={item.description}
-      ref={this.itemRefs[item.index]}
+      ref={this.itemRefs[index]}
+      onLayout={(e) => this.onLayout(e, index)}
+      onFocusChange={this.handleFocusChange}
+      {...{ index }}
     />
   );
 

@@ -47,7 +47,6 @@ export interface PictureType {
   id: string;
   description: string;
   thumb: string;
-  index: number;
 }
 
 export interface PicturesResponseType {
