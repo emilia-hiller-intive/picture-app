@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
-import Grid from '../components/Grid/Grid';
+import Grid from '../components/Grid';
 import { RootState } from '../store/reducers';
 import { PictureType } from '../types/pictures';
 import ActivityIndicator from '../components/ActivityIndicator';

@@ -8,7 +8,6 @@ import {
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from '@reduxjs/toolkit';
-import { NavigationScreenProp, NavigationState } from 'react-navigation';
 import { FocusManager } from '@youi/react-native-youi';
 import actions from '../store/actions';
 import { RootState } from '../store/reducers';
@@ -22,7 +21,6 @@ interface State {
 
 interface Props extends PicturesStateType {
   dispatch: Dispatch;
-  navigation: NavigationScreenProp<NavigationState>;
 }
 
 class SearchScreen extends Component<Props, State> {

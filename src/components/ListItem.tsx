@@ -1,12 +1,19 @@
 import React, { Component, RefObject } from 'react';
 import { Image, Text, TouchableHighlight, View } from 'react-native';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import { PATHS } from '../consts';
 
-interface Props {
+interface Props extends NavigationInjectedProps {
   thumb?: string;
   description: string;
   onLayout?: (event: any) => void;
   index: number;
   onFocusChange: (index: number) => void;
+  ref: RefObject<any>;
+}
+
+export interface ListItemType {
+  props: Props;
 }
 
 class ListItem extends Component<Props, {}> {
@@ -23,6 +30,11 @@ class ListItem extends Component<Props, {}> {
     this.setState({ isFocused: false });
   };
 
+  onPress = () => {
+    this.onFocus();
+    this.props.navigation.navigate(PATHS.VIDEO);
+  };
+
   render() {
     const { thumb, description, onLayout } = this.props;
 
@@ -32,6 +44,7 @@ class ListItem extends Component<Props, {}> {
         onBlur={this.onBlur}
         style={[styles.tile, this.state.isFocused ? styles.focused : {}]}
         {...{ onLayout }}
+        onPress={this.onPress}
       >
         {/* @ts-ignore */}
         <View style={styles.content}>
@@ -49,7 +62,7 @@ class ListItem extends Component<Props, {}> {
   }
 }
 
-export default ListItem;
+export default withNavigation(ListItem);
 
 const styles = {
   tile: {
@@ -66,7 +79,7 @@ const styles = {
     fontSize: 8,
   },
   focused: {
-    borderColor: '#E71C32',
+    borderColor: '#37EAEA',
   },
   thumbnail: { width: 80, height: 80 },
 };

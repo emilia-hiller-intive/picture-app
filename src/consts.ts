@@ -6,4 +6,5 @@ export const STATUS_CODE = {
 export const PATHS = {
   RESULTS: 'Results',
   SEARCH: 'Search',
+  VIDEO: 'Video',
 };
